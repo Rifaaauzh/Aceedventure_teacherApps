@@ -40,7 +40,13 @@ class NotificationHandler: NSObject, UNUserNotificationCenterDelegate {
     private func redirectToGoogle(_ body: String) {
         if let url = URL(string: body), UIApplication.shared.canOpenURL(url) {
             DispatchQueue.main.async {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as! ViewController
+                vc.notiURL = body
+                vc.modalPresentationStyle = .fullScreen
+                 let root = UIApplication.shared.windows.first?.rootViewController
+                root?.modalPresentationStyle = .fullScreen
+                root?.present(vc, animated: false, completion: nil)
+                //UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         } else {
             print("Notification body is not a valid URL: \(body)")

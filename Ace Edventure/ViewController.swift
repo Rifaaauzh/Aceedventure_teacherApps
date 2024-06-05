@@ -12,7 +12,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!
     var activityIndicator: UIActivityIndicatorView!
-
+    var notiURL: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,11 +40,17 @@ class ViewController: UIViewController, WKNavigationDelegate {
         activityIndicator.hidesWhenStopped = true
         self.view.addSubview(activityIndicator)
         
+            print("notiurl = \(notiURL ?? "")")
         // Check internet connection
         checkInternetConnection { isConnected in
         DispatchQueue.main.async {
             if isConnected {
-                self.loadPage()
+                print("notiurl = \(self.notiURL ?? "")")
+                if self.notiURL == nil{
+                    self.loadPage()
+                }else{
+                    self.loadPage(url: self.notiURL)
+                }
             } else {
                 self.loadNoConnectionPage()
             }
@@ -64,22 +70,48 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     // Load the initial web page
-        func loadPage() {
-                let loginURL = URL(string: "https://teacher.aceedventure.com/teacher/")!
-                var request = URLRequest(url: loginURL)
-            
-                checkInternetConnection { isConnected in
+    func loadPage(url:String? = nil) {
+        
+        
+        
+        if url == nil{
+            let loginURL = URL(string: "https://teacher.aceedventure.com/teacher/")!
+            var request = URLRequest(url: loginURL)
+            checkInternetConnection { isConnected in
                 DispatchQueue.main.async {
+                    
                     if isConnected {
+                        
                         request.cachePolicy = .useProtocolCachePolicy
                     } else {
                         request.cachePolicy = .returnCacheDataElseLoad
                     }
                 }
             }
-
+            
                 webView.load(request)
+           
+        }else{
+            let loginURL = URL(string: url!)!
+            var request = URLRequest(url: loginURL)
+            checkInternetConnection { isConnected in
+                DispatchQueue.main.async {
+                    
+                    if isConnected {
+                        
+                        request.cachePolicy = .useProtocolCachePolicy
+                    } else {
+                        request.cachePolicy = .returnCacheDataElseLoad
+                    }
+                }
             }
+            
+            webView.load(request)
+            
+        }
+        
+    }
+      
     
         func loadNoConnectionPage() {
                 if let filePath = Bundle.main.path(forResource: "no_connection", ofType: "html") {
