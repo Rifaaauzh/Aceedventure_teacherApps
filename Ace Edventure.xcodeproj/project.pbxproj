@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D6085D72C10092E009802A7 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6085D62C10092E009802A7 /* NotificationHandler.swift */; };
 		8DD4F67D2C096A7600F9B512 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD4F67C2C096A7600F9B512 /* AppDelegate.swift */; };
 		8DD4F67F2C096A7600F9B512 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD4F67E2C096A7600F9B512 /* SceneDelegate.swift */; };
 		8DD4F6812C096A7600F9B512 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD4F6802C096A7600F9B512 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D6085D62C10092E009802A7 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		8DD4F6792C096A7600F9B512 /* Ace Edventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ace Edventure.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD4F67C2C096A7600F9B512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DD4F67E2C096A7600F9B512 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				8DD4F6872C096A7800F9B512 /* LaunchScreen.storyboard */,
 				8DD4F68A2C096A7800F9B512 /* Info.plist */,
 				8DD4F6972C097E7B00F9B512 /* Reachability.swift */,
+				8D6085D62C10092E009802A7 /* NotificationHandler.swift */,
 			);
 			path = "Ace Edventure";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				8DD4F6812C096A7600F9B512 /* ViewController.swift in Sources */,
 				8DD4F67D2C096A7600F9B512 /* AppDelegate.swift in Sources */,
+				8D6085D72C10092E009802A7 /* NotificationHandler.swift in Sources */,
 				8DD4F6982C097E7B00F9B512 /* Reachability.swift in Sources */,
 				8DD4F67F2C096A7600F9B512 /* SceneDelegate.swift in Sources */,
 			);
